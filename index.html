@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App by Adarsh Tiwari</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        h2 {
+            margin: 0px;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 45px;
+            color: rgb(244, 157, 125);
+        }
+
+        h1 {
+            margin: 0px;
+            padding: 10px;
+            text-align: center;
+            color: aliceblue;
+            background-color: blue;
+            text-decoration: underline;
+            border: 4px solid black;
+        }
+
+        p {
+            font-size: 25px;
+            margin: 0;
+            padding: 0px 12px;
+        }
+
+        ol {
+            font-size: 25px;
+            margin: 0;
+            padding: 0 auto;
+        }
+
+        .question_container {
+            height: 100%;
+            width: 100%;
+            font-size: 40px;
+            padding: 0 auto;
+            margin: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question {
+            background-color: rgb(69, 69, 235);
+            border-radius: 50px;
+            padding: 10px;
+        }
+
+        .option {
+            background-color: rgb(69, 69, 235);
+            border-radius: 30px;
+            padding: 10px;
+            width: fit-content;
+            min-width: 20%;
+            margin: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 40px;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #next {
+            background-color: rgb(235, 158, 69);
+            border-radius: 30px;
+            padding: 10px;
+            width: 250px;
+            margin: 10px auto;
+            text-align: center;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+        #NATbox {
+            width: 300px;
+            font-size: 20px;
+            padding: 0;
+            margin: 20px auto;
+        }
+
+        .timer {
+            margin: auto;
+            text-align: center;
+            color: green;
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Quiz App by Adarsh Tiwari
+        <nav id>
+            <ul>
+                <li><a id="link-1">Home</a></li>
+                <li><a id="link-2">Quizzes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <div id="Page-1">
+            <h2>WELCOME</h2>
+            <p>Welcome to Quiz App by Adarsh Tiwari!</p>
+
+            <h2>General Rules:-</h2>
+            <ol>
+                <li>You can navigate to a quiz by using the "Quizzes" option in the navigation bar.</li>
+                <li>There can be 2 types of questions:-
+                    <ul>
+                        <li><dl>
+                            <dt>MCQs:</dt>
+                                <dd>Each question contains 4 options with 1 correct option.</dd>
+                                <dd>Once you click on an option, answer is revealed.</dd>
+                        </dl></li>
+                        
+                        <li><dl>
+                            <dt>NATs:</dt>
+                                <dd>Each question has an integral answer.</dd>
+                                <dd>Enter the answer and click on save to reveal the answer.</dd>
+                        </dl></li>
+                    </ul>
+                </li>
+                <li>Scores:-
+                    <ul>
+                        <li>For every correct answer, you get +4 points.</li>
+                        <li>For every incorrect answer, you get -1 points.</li>
+                        <li>For every missed question, you get +0 points.</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        <div id="Page-2" hidden>
+            <h1>QUIZZES:-</h1>
+            <p>
+                
+            </p>
+        </div>
+        <div id="Page-3" hidden>
+            <div class="question_container">
+                <div class="timer">00:00</div>
+                <div class="question">Q. This is a Sample Question. Lorem ipsum dolor sit amet consectetur, adipisicing
+                    elit. Soluta excepturi, velit porro nulla veniam rem voluptate, quisquam fugiat asperiores quaerat
+                    modi, et maiores. Quasi tempora rerum alias cum ducimus illo rem aliquid reprehenderit! Perspiciatis
+                    quisquam dolorem eveniet ipsam iusto odio doloremque nulla dolor sequi labore?</div>
+                <div class="options">
+                    <button id="option-A" class="option" hidden>Option A</button>
+                    <button id="option-B" class="option" hidden>Option B</button>
+                    <button id="option-C" class="option" hidden>Option C</button>
+                    <button id="option-D" class="option" hidden>Option D</button>
+                </div>
+                <textarea name="NAT Entry" id="NATbox"></textarea>
+                <button id="next">Next</button>
+            </div>
+            <div class="answer_reveal"></div>
+        </div>
+    </main>
+    <footer>
+        &copy;Adarsh Tiwari 2026
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

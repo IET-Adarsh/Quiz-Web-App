@@ -1,0 +1,77 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+div {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+main {
+    background-color: rgb(131, 100, 211);
+    margin: 0;
+    padding: 10px;
+    overflow: hidden auto;
+    height: 80vh;
+    width: 100vw;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+header {
+    box-sizing: border-box;
+    font-size: 40px;
+    background-color: rgb(71, 197, 255);
+    border: 2px solid black;
+    color: #000;
+    text-align: center;
+    margin: 0;
+    height: 13vh;
+    width: 100vw;
+    padding: 10px;
+    font-weight: 700;
+    position: sticky;
+}
+
+footer {
+    box-sizing: border-box;
+    font-size: 25px;
+    background-color: rgb(133, 106, 201);
+    color: #000;
+    text-align: center;
+    margin: 0;
+    display: block;
+    height: 7vh;
+    width: 100vw;
+    padding: 10px;
+    font-weight: 700;
+}
+
+nav {
+margin: 0;
+}
+
+nav > ul {
+    display: flex;
+    margin: 10px 0px;
+    padding: 0;
+}
+
+nav > ul > li {
+    padding: 0px 10px;
+    list-style: none;
+    font-size: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: violet;
+}
