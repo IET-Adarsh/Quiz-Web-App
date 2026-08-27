@@ -1,0 +1,24 @@
+/* Page wise Design:-------------------------------------------------------------------------------------------------*/
+/* Page-1 */
+#Page-1 {
+    padding: 10px;
+}
+
+#Page-1 > h2 {
+    margin: 10px 0px;
+    padding: 0px;
+    color: rgb(241, 201, 150);
+    text-decoration: underline;
+}
+
+#Page-1 > p, #Page-1 > ol {
+    margin: 0px;
+    margin-bottom: 40px;
+    padding: auto 0px;
+}
+
+/* Page-2 */
+
+/* Page-3 */
+
+/* Page-4 */
