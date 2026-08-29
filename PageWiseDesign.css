@@ -4,21 +4,217 @@
     padding: 10px;
 }
 
-#Page-1 > h2 {
+#Page-1>h2 {
     margin: 10px 0px;
     padding: 0px;
     color: rgb(241, 201, 150);
     text-decoration: underline;
 }
 
-#Page-1 > p, #Page-1 > ol {
+#Page-1>p,
+#Page-1>ol {
     margin: 0px;
     margin-bottom: 40px;
     padding: auto 0px;
 }
 
 /* Page-2 */
+#Page-2 {
+    margin: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#Page-2>h2 {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    text-decoration: underline;
+
+    background-color: lightblue;
+    color: rgb(234, 133, 0);
+}
+
+.quiz_details:nth-child(odd) {
+    background-color: rgb(234, 133, 0);
+}
+
+.quiz_details:nth-child(even) {
+    background-color: rgb(204, 116, 1);
+}
+
+#Page-2 .quiz_details {
+    margin: 0px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#Page-2 .quiz_details>h3 {
+    margin: 0px;
+    text-align: center;
+    text-decoration: underline;
+    color: black;
+}
+
+#Page-2 .quiz_details>button {
+    display: block;
+    margin: auto;
+    padding: 4px 6px;
+    border-radius: 20px;
+    text-align: center;
+    width: 15%;
+
+    background-color: green;
+    color: burlywood;
+    font-size: 25px;
+}
+
+#Page-2 .quiz_details p {
+    color: purple;
+}
+
+#Page-2 .quiz_details p::selection {
+    background-color: violet;
+}
 
 /* Page-3 */
+#Page-3 button {
+    cursor: pointer;
+}
+
+#Page-3 .question {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 35px;
+    background-color: blue;
+    color: antiquewhite;
+    border-radius: 40px;
+    border: 2px solid gold;
+}
+
+#Page-3 .question_header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+}
+
+#Page-3 .header {
+    width: 30%;
+    text-align: center;
+}
+
+#Page-3 .option_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+#Page-3 .option {
+    width: 90%;
+}
+
+#Page-3 #question {
+    margin: auto;
+    justify-self: center;
+    width: 95%;
+}
+
+#Page-3 .nat {
+    margin: auto;
+    /* Page-4 */
+    text-align: center;
+    display: block;
+    width: 80%;
+
+    background-color: lightblue;
+    color: black;
+}
+
+#Page-3 .next {
+    margin: 15px auto;
+    padding: 5px 10px;
+    display: block;
+
+    font-size: 35px;
+    width: 20%;
+    justify-self: center;
+
+    background-color: orange;
+    color: green;
+    border-radius: 40px;
+    border: 2px solid gold;
+}
 
 /* Page-4 */
+#Page-4 h2 {
+    margin: 10px;
+    padding: 0px;
+    text-align: center;
+    font-weight: 200;
+    text-decoration: underline;
+    color: rgb(234, 133, 0);
+}
+
+#Page-4 ul {
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 45%;
+}
+
+#Page-4 li:nth-child(1) {
+    color: cyan;
+}
+
+#Page-4 li:nth-child(2) {
+    color: lightblue;
+}
+
+#Page-4 li:nth-child(3),
+#Page-4 .correct {
+    color: lightgreen;
+}
+
+#Page-4 li:nth-child(4),
+#Page-4 .incorrect {
+    color: red;
+}
+
+#Page-4 li:nth-child(5),
+#Page-4 .unanswered {
+    color: orange;
+}
+
+#Page-4 table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 15px auto;
+}
+
+#Page-4 table caption {
+    font-weight: 200;
+    font-size: 40px;
+    color: #000;
+}
+
+#Page-4 td,
+#Page-4 th {
+    padding: 10px;
+}
+
+#Page-4 thead tr {
+    background-color: #009879;
+}
+
+#Page-4 tbody tr {
+    border-bottom: 1px solid #dddddd;
+    color: #000;
+    background-color: #ffffff;
+}
+
+#Page-4 tbody tr:nth-of-type(even) {
+    background-color: #dedede;
+}
+
+#Page-4 tbody tr:last-of-type {
+    border-bottom:  3px solid #009879;
+}

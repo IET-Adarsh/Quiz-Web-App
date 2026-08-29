@@ -20,7 +20,7 @@
         </nav>
     </header>
     <main>
-        <div id="Page-1" hidden>
+        <div id="Page-1">
             <h2>Welcome:-</h2>
             <p>Welcome to Quiz App by Adarsh Tiwari!</p>
 
@@ -32,14 +32,14 @@
                         <summary>MCQs</summary>
                         <ul>
                             <li>Each question contains 4 options with 1 correct option.</li>
-                            <li>Once you click on an option, answer is revealed.</li>
+                            <li>Once you select an option and click "Lock Answer", answer is revealed.</li>
                         </ul>
                     </details>
                     <details>
                         <summary>NATs</summary>
                         <ul>
                             <li>Each question has an integral answer.</li>
-                            <li>Enter the answer and click on save to reveal the answer.</li>
+                            <li>Enter the answer and click on "Lock Answer" to reveal the answer.</li>
                         </ul>
                     </details>   
                 </li>
@@ -62,29 +62,66 @@
                 <button>Start Quiz</button>
             </div>
         </div>
-        <div id="Page-3" hidden>
-            <div class="timer">00:00</div>
-            <div class="score">
-                <b>SCORE:</b> 0 Points
+        <div id="Page-3">
+            <div class="question_header">
+                <span class="question header" id="type">MCQ</span>
+                <span class="question header" id="timer">00:00</span>
+                <span class="question header" id="score">0 Points</span>
             </div>
-            <div class="question mcq nat">Q. This is a Sample Question. Lorem ipsum dolor sit amet consectetur, adipisicing
+            <div id="question" class="question">Q. This is a Sample Question. Lorem ipsum dolor sit amet consectetur, adipisicing
                 elit. Soluta excepturi, velit porro nulla veniam rem voluptate, quisquam fugiat asperiores quaerat
                 modi, et maiores. Quasi tempora rerum alias cum ducimus illo rem aliquid reprehenderit! Perspiciatis
                 quisquam dolorem eveniet ipsam iusto odio doloremque nulla dolor sequi labore?</div>
             <div class="option_container mcq">
-                <button id="A" class="option mcq">Option A</button>
-                <button id="B" class="option mcq">Option B</button>
-                <button id="C" class="option mcq">Option C</button>
-                <button id="D" class="option mcq">Option D</button>
+                <button id="option-A" class="option mcq question">Option A</button>
+                <button id="option-B" class="option mcq question">Option B</button>
+                <button id="option-C" class="option mcq question">Option C</button>
+                <button id="option-D" class="option mcq question">Option D</button>
             </div>
-            <input type="number" class="nat" id="NATbox" placeholder="Enter your answer here...">
-            <button id="next" class="mcq nat">Next</button>
+            <input type="number" id="NATbox" class="question nat" placeholder="Enter your answer here...">
+            <button class="next">Next</button>
         </div>
-        <div id="Page-4" hidden>
+        <div id="Page-4">
             <h2>RESULTS:-</h2>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error consequatur similique, accusantium perferendis omnis recusandae aut, veritatis suscipit maxime iusto magnam quam numquam architecto ullam placeat ducimus! Autem, nulla! Numquam assumenda labore dolore iste alias ad aliquid deserunt quo quidem?
-            </p>
+            <ul>
+                <li>Your Score: 0 Points</li>
+                <li>Accuracy: 0% </li>
+                <li>Correct: 0</li>
+                <li>Incorrect: 0</li>
+                <li>Unanswered: 0</li>
+            </ul>
+
+            <table>
+                <caption>Question Review</caption>
+                <thead>
+                    <tr>
+                        <th>Q. No.</th>
+                        <th>Your Answer</th>
+                        <th>Correct Answer</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1.</th>
+                        <td>A</td>
+                        <td>A</td>
+                        <td class="correct">+4</td>
+                    </tr>
+                    <tr>
+                        <th>2.</th>
+                        <td>A</td>
+                        <td>B</td>
+                        <td class="incorrect">-1</td>
+                    </tr>
+                    <tr>
+                        <th>3.</th>
+                        <td>-</td>
+                        <td>A</td>
+                        <td class="unanswered">+0</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
     <footer>
