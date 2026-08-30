@@ -54,7 +54,7 @@ quiz_array.forEach(quiz_obj => {
     page2.append(template)
 
     let k = template.children
-    let Time_total_s = (quiz_obj.MCQs * 45) + (quiz_obj.NATs * 90)
+    let Time_total_s = (quiz_obj.MCQs * quiz_obj.MCQs_Timer) + (quiz_obj.NATs * quiz_obj.NATs_Timer)
     let Time_m = parseInt(Time_total_s / 60)
     let Time_s = Time_total_s - (Time_m * 60)
 
@@ -75,6 +75,7 @@ quiz_array.forEach(quiz_obj => {
 let quiz_selector_buttons = document.querySelectorAll(".quiz_selector_button")
 quiz_selector_buttons.forEach(button => {
     button.addEventListener("click", () => {
-        main_quiz_func(quiz_array[parseInt(button.id.slice(7))].Questions)
+        let question_obj = quiz_array[parseInt(button.id.slice(7))]
+        main_quiz_func(question_obj.Questions, question_obj.MCQs_Timer, question_obj.NATs_Timer)
     })
 });

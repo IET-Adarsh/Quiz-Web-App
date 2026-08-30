@@ -42,7 +42,7 @@ function timeFunc(m, s) {
     return [k, prm]
 }
 
-function main_quiz_func(question_list) {
+function main_quiz_func(question_list, MCQs_Timer, NATs_Timer) {
     function result_page_display() {
         new_page = page4
         let acc = parseInt(((ans_tracker[0]) / (ans_tracker[0] + ans_tracker[1])) * 10000) / 100
@@ -68,10 +68,10 @@ function main_quiz_func(question_list) {
         type_box.innerHTML = question.type
         score_box.innerHTML = `${score_var} Points`
         if (question.type == "MCQ") {
-            [timer_id, timer_prm] = timeFunc(0, 45)
+            [timer_id, timer_prm] = timeFunc(MCQs_Timer[0], MCQs_Timer[1])
         }
         else if (question.type == "NAT") {
-            [timer_id, timer_prm] = timeFunc(1, 30)
+            [timer_id, timer_prm] = timeFunc(NATs_Timer[0], NATs_Timer[1])
         }
 
         // Question
@@ -247,67 +247,69 @@ function main_quiz_func(question_list) {
             }
         }
         else if (question.type == "NAT") {
-            your_ans = natarea.value
-
-            if (your_ans == question.answer) {
-                clearInterval(timer_id)
-                score_var = score_var + 4
-                ans_locked = true
-
-                natarea.style.backgroundColor = "green"
-                ans_tracker[0] = ans_tracker[0] + 1
-                let new_tr = document.createElement("tr")
-                new_tr.innerHTML = `
-                    <th>${index + 1}</th>
-                    <td>${question.type}</td>
-                    <td>${your_ans}</td>
-                    <td>${question.answer}</td>
-                    <td class="correct">+4</td>`
-                review.append(new_tr)
-
-                setTimeout(() => {
-                    index++
-                    if (index != question_list.length) {
-                        question = question_list[index]
-                        natarea.value = ""
-                        natarea.style.backgroundColor = ""
-                        question_handler()
-                    }
-                    else {
-                        result_page_display()
-                    }
-                }, 1500)
-            }
-            else if (your_ans != "-") {
-                clearInterval(timer_id)
-                score_var = score_var - 1
-                ans_locked = true
-
-                natarea.style.backgroundColor = "red"
-                alert(`Correct Answer is ${question.answer}`)
-
-                ans_tracker[1] = ans_tracker[1] + 1
-                let new_tr = document.createElement("tr")
-                new_tr.innerHTML = `
-                    <th>${index + 1}</th>
-                    <td>${question.type}</td>
-                    <td>${your_ans}</td>
-                    <td>${question.answer}</td>
-                    <td class="incorrect">-1</td>`
-                review.append(new_tr)
-
-                setTimeout(() => {
-                    index = index + 1
-                    if (index != question_list.length) {
-                        question = question_list[index]
-                        natarea.value = ""
-                        natarea.style.backgroundColor = ""
-                        question_handler()
-                    }
-                    else {
-                        result_page_display()
-                    }
-                }, 1500)
+            if (natarea.value != "") {
+                your_ans = natarea.value 
+    
+                if (your_ans == question.answer) {
+                    clearInterval(timer_id)
+                    score_var = score_var + 4
+                    ans_locked = true
+    
+                    natarea.style.backgroundColor = "green"
+                    ans_tracker[0] = ans_tracker[0] + 1
+                    let new_tr = document.createElement("tr")
+                    new_tr.innerHTML = `
+                        <th>${index + 1}</th>
+                        <td>${question.type}</td>
+                        <td>${your_ans}</td>
+                        <td>${question.answer}</td>
+                        <td class="correct">+4</td>`
+                    review.append(new_tr)
+    
+                    setTimeout(() => {
+                        index++
+                        if (index != question_list.length) {
+                            question = question_list[index]
+                            natarea.value = ""
+                            natarea.style.backgroundColor = ""
+                            question_handler()
+                        }
+                        else {
+                            result_page_display()
+                        }
+                    }, 1500)
+                }
+                else if (your_ans != "-") {
+                    clearInterval(timer_id)
+                    score_var = score_var - 1
+                    ans_locked = true
+    
+                    natarea.style.backgroundColor = "red"
+                    alert(`Correct Answer is ${question.answer}`)
+    
+                    ans_tracker[1] = ans_tracker[1] + 1
+                    let new_tr = document.createElement("tr")
+                    new_tr.innerHTML = `
+                        <th>${index + 1}</th>
+                        <td>${question.type}</td>
+                        <td>${your_ans}</td>
+                        <td>${question.answer}</td>
+                        <td class="incorrect">-1</td>`
+                    review.append(new_tr)
+    
+                    setTimeout(() => {
+                        index = index + 1
+                        if (index != question_list.length) {
+                            question = question_list[index]
+                            natarea.value = ""
+                            natarea.style.backgroundColor = ""
+                            question_handler()
+                        }
+                        else {
+                            result_page_display()
+                        }
+                    }, 1500)
+                }
             }
         }
     })

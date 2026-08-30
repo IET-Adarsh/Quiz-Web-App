@@ -176,10 +176,10 @@
     color: lightblue;
 }
 
-#Page-4 li:nth-child(3),
-#Page-4 .correct {
+#Page-4 li:nth-child(3){
     color: lightgreen;
 }
+
 
 #Page-4 li:nth-child(4),
 #Page-4 .incorrect {
@@ -189,6 +189,10 @@
 #Page-4 li:nth-child(5),
 #Page-4 .unanswered {
     color: orange;
+}
+
+#Page-4 .correct {
+    color: green;
 }
 
 #Page-4 table {

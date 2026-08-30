@@ -6,6 +6,8 @@ let quiz_obj_1 = {
     MCQs: 10,
     NATs: 5,
     Topic: "General Knowledge",
+    MCQs_Timer: [0, 20],
+    NATs_Timer: [0, 30],
 
     Questions: [
         {
