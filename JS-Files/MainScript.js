@@ -54,7 +54,7 @@ quiz_array.forEach(quiz_obj => {
     page2.append(template)
 
     let k = template.children
-    let Time_total_s = (quiz_obj.MCQs * quiz_obj.MCQs_Timer) + (quiz_obj.NATs * quiz_obj.NATs_Timer)
+    let Time_total_s = (quiz_obj.MCQs * ((quiz_obj.MCQs_Timer[0] * 60) + quiz_obj.MCQs_Timer[1])) + (quiz_obj.NATs * ((quiz_obj.NATs_Timer[0] * 60) + quiz_obj.NATs_Timer[1]))
     let Time_m = parseInt(Time_total_s / 60)
     let Time_s = Time_total_s - (Time_m * 60)
 
