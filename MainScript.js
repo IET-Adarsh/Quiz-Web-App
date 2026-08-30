@@ -43,14 +43,14 @@ tab2.addEventListener("click", () => {
     navfunc()
 })
 
-let index = 0
+let index_quiz_details = 0
 quiz_array.forEach(quiz_obj => {
     let template = document.createElement("div")
     template.classList.add("quiz_details")
     template.innerHTML = `
         <h3>Dummy Quiz Header</h3>
         <ul></ul>
-        <button id="button-${index}" class="quiz_selector_button">Start Quiz</button>`
+        <button id="button-${index_quiz_details}" class="quiz_selector_button">Start Quiz</button>`
     page2.append(template)
 
     let k = template.children
@@ -69,12 +69,12 @@ quiz_array.forEach(quiz_obj => {
     <li>⏱ Time Limit: ${Time_m}m ${Time_s}s</li>
     <li>📚 Topic: ${quiz_obj.Topic}</li>`
 
-    index = index + 1
+    index_quiz_details++
 });
 
 let quiz_selector_buttons = document.querySelectorAll(".quiz_selector_button")
 quiz_selector_buttons.forEach(button => {
     button.addEventListener("click", () => {
-        main_quiz_func(quiz_array[parseInt(button.id[7])].Questions)
+        main_quiz_func(quiz_array[parseInt(button.id.slice(7))].Questions)
     })
 });
