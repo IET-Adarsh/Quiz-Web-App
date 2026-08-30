@@ -67,6 +67,7 @@
     background-color: green;
     color: burlywood;
     font-size: 25px;
+    cursor: pointer;
 }
 
 #Page-2 .quiz_details p {
@@ -116,15 +117,21 @@
 #Page-3 #question {
     margin: auto;
     justify-self: center;
+    text-align: center;
     width: 95%;
+}
+
+#Page-3 .nat_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
 }
 
 #Page-3 .nat {
     margin: auto;
-    /* Page-4 */
+    margin-top: 15px;
     text-align: center;
-    display: block;
-    width: 80%;
+    width: 90%;
 
     background-color: lightblue;
     color: black;

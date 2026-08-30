@@ -11,11 +11,11 @@
 
 <body>
     <header>
-        <h1>Quiz App by Adarsh Tiwari</h1>
-        <nav>
+        <h1 id="website_head"></h1>
+        <nav id="navbar">
             <ul id="nav_list">
-                <li><a id="link-1">Home</a></li>
-                <li><a id="link-2">Quizzes</a></li>
+                <li id="link-1">Home</li>
+                <li id="link-2">Quizzes</li>
             </ul>
         </nav>
     </header>
@@ -32,6 +32,7 @@
                         <summary>MCQs</summary>
                         <ul>
                             <li>Each question contains 4 options with 1 correct option.</li>
+                            <li>You will get 45s for answering an MCQ.</li>
                             <li>Once you select an option and click "Lock Answer", answer is revealed.</li>
                         </ul>
                     </details>
@@ -39,6 +40,7 @@
                         <summary>NATs</summary>
                         <ul>
                             <li>Each question has an integral answer.</li>
+                            <li>You will get 1m 30s for answering a NAT.</li>
                             <li>Enter the answer and click on "Lock Answer" to reveal the answer.</li>
                         </ul>
                     </details>   
@@ -54,13 +56,6 @@
         </div>
         <div id="Page-2">
             <h2>QUIZZES:-</h2>
-            <div class="quiz_details">
-                <h3>Dummy Quiz Header</h3>
-                <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error consequatur similique, accusantium perferendis omnis recusandae aut, veritatis suscipit maxime iusto magnam quam numquam architecto ullam placeat ducimus! Autem, nulla! Numquam assumenda labore dolore iste alias ad aliquid deserunt quo quidem?
-                </p>
-                <button>Start Quiz</button>
-            </div>
         </div>
         <div id="Page-3">
             <div class="question_header">
@@ -78,17 +73,14 @@
                 <button id="option-C" class="option mcq question">Option C</button>
                 <button id="option-D" class="option mcq question">Option D</button>
             </div>
-            <input type="number" id="NATbox" class="question nat" placeholder="Enter your answer here...">
-            <button class="next">Next</button>
+            <div class="nat_container">
+                <input type="number" id="NATbox" class="question nat" placeholder="Enter your answer here...">
+            </div>
+            <button class="next" id="next">Next</button>
         </div>
         <div id="Page-4">
             <h2>RESULTS:-</h2>
             <ul>
-                <li>Your Score: 0 Points</li>
-                <li>Accuracy: 0% </li>
-                <li>Correct: 0</li>
-                <li>Incorrect: 0</li>
-                <li>Unanswered: 0</li>
             </ul>
 
             <table>
@@ -96,30 +88,13 @@
                 <thead>
                     <tr>
                         <th>Q. No.</th>
+                        <th>Q. Type</th>
                         <th>Your Answer</th>
                         <th>Correct Answer</th>
                         <th>Points</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th>1.</th>
-                        <td>A</td>
-                        <td>A</td>
-                        <td class="correct">+4</td>
-                    </tr>
-                    <tr>
-                        <th>2.</th>
-                        <td>A</td>
-                        <td>B</td>
-                        <td class="incorrect">-1</td>
-                    </tr>
-                    <tr>
-                        <th>3.</th>
-                        <td>-</td>
-                        <td>A</td>
-                        <td class="unanswered">+0</td>
-                    </tr>
+                <tbody id="review">
                 </tbody>
             </table>
         </div>
@@ -127,5 +102,8 @@
     <footer>
         &copy;Adarsh Tiwari 2026
     </footer>
+    <script src="QuestionScript.js"></script>
+    <script src="MainScript.js"></script>
+    <script src="QuizScript.js"></script>
 </body>
 </html>
