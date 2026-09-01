@@ -1,5 +1,8 @@
-// Head Typewritter effect
-function typewriter(element, text, delay_in_ms) {
+// Heading Typewritter effect
+function Main_Heading_Typewritter_Effect() {
+    let element = document.getElementById("website_head")
+    let text = "Quiz App by Adarsh Tiwari"
+    let delay_in_ms = 60
     for (let i = 0; i < text.length; i++) {
         setTimeout(() => {
             element.innerHTML += text[i];
@@ -7,75 +10,67 @@ function typewriter(element, text, delay_in_ms) {
     }
 }
 
-let element = document.getElementById("website_head")
-let text = "Quiz App by Adarsh Tiwari"
-typewriter(element, text, 60)
-
 // Page Navigation
-function navfunc() {
-    last_page.hidden = true
+function navigate_to_page(new_page) {
+    current_page.hidden = true
     new_page.hidden = false
-    last_page = new_page
+    current_page = new_page
 }
 
-let navbar = document.getElementById("navbar")
-let tab1 = document.getElementById("link-1")
-let tab2 = document.getElementById("link-2")
-let page1 = document.getElementById("Page-1")
-let page2 = document.getElementById("Page-2")
-let page3 = document.getElementById("Page-3")
-let page4 = document.getElementById("Page-4")
-let last_page = page1
-let new_page
+// Adding Navigation bar Functionality
+function add_navigation_bar_listeners() {
+    let tabs = [element_tab1, element_tab2]
+    let nav_pages = [element_page1, element_page2]
 
-page1.hidden = false
-page2.hidden = true
-page3.hidden = true
-page4.hidden = true
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+            navigate_to_page(nav_pages[index])
+        })
+    });
+}
 
-tab1.addEventListener("click", () => {
-    new_page = page1
-    navfunc()
-})
+function add_all_available_quiz_details() {
+    quiz_array.forEach((quiz_obj, index) => {
+        // Calculating Time
+        let Time_total_s = (quiz_obj.MCQs_Timer_in_sec * quiz_obj.MCQs) + (quiz_obj.NATs_Timer_in_sec * quiz_obj.NATs)
+        let Time_m = parseInt(Time_total_s / 60)
+        let Time_s = Time_total_s - (Time_m * 60)
 
-tab2.addEventListener("click", () => {
-    new_page = page2
-    navfunc()
-})
-
-let index_quiz_details = 0
-quiz_array.forEach(quiz_obj => {
-    let template = document.createElement("div")
-    template.classList.add("quiz_details")
-    template.innerHTML = `
-        <h3>Dummy Quiz Header</h3>
-        <ul></ul>
-        <button id="button-${index_quiz_details}" class="quiz_selector_button">Start Quiz</button>`
-    page2.append(template)
-
-    let k = template.children
-    let Time_total_s = (quiz_obj.MCQs * ((quiz_obj.MCQs_Timer[0] * 60) + quiz_obj.MCQs_Timer[1])) + (quiz_obj.NATs * ((quiz_obj.NATs_Timer[0] * 60) + quiz_obj.NATs_Timer[1]))
-    let Time_m = parseInt(Time_total_s / 60)
-    let Time_s = Time_total_s - (Time_m * 60)
-
-    k[0].innerHTML = quiz_obj.header
-    k[1].innerHTML = `
-    <li>📝 Questions: ${quiz_obj.Qs}
+        // Adding template
+        let template = document.createElement("div")
+        template.classList.add("quiz_details")
+        template.innerHTML = `
+        <h3>${quiz_obj.header}</h3>
         <ul>
-            <li>🔘 MCQ: ${quiz_obj.MCQs}</li>
-            <li>🔢 NAT: ${quiz_obj.NATs}</li>
+            <li>📝 Questions: ${quiz_obj.Qs}
+                <ul>
+                    <li>🔘 MCQ: ${quiz_obj.MCQs}</li>
+                    <li>🔢 NAT: ${quiz_obj.NATs}</li>
+                </ul>
+            </li>
+            <li>⏱ &nbsp; Total Duration: ${Time_m}m ${Time_s}s</li>
+            <li>📚 Topic: ${quiz_obj.Topic}</li>
         </ul>
-    </li>
-    <li>⏱ Time Limit: ${Time_m}m ${Time_s}s</li>
-    <li>📚 Topic: ${quiz_obj.Topic}</li>`
+        <button id="button-${index}" class="quiz_selector_button">Start Quiz</button>`
+        element_page2.append(template)
 
-    index_quiz_details++
-});
-
-let quiz_selector_buttons = document.querySelectorAll(".quiz_selector_button")
-quiz_selector_buttons.forEach(button => {
-    button.addEventListener("click", () => {
-        let question_obj = quiz_array[parseInt(button.id.slice(7))]
-        main_quiz_func(question_obj.Questions, question_obj.MCQs_Timer, question_obj.NATs_Timer)
+        // Adding listner to button
+        let button = document.getElementById(`button-${index}`)
+        button.addEventListener("click", () => {
+            alert("Starting Quiz...")
+            quiz_object = quiz_obj
+            navigate_to_page(element_page3)
+            element_navbar.hidden = true
+            quiz_question_index = 0
+            quiz_question_answer_tracker = [0, 0, 0]
+            quiz_score_var = 0
+            element_quiz_result_review.innerHTML = ""
+            Next_Quiz_Question()
+        })
     })
-});
+}
+
+// Calling Functions
+Main_Heading_Typewritter_Effect()
+add_navigation_bar_listeners()
+add_all_available_quiz_details()
